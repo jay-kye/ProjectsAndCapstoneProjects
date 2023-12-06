@@ -1,0 +1,139 @@
+Part 1.
+
+- git checkout -b Branch_Name or git switch -c Branch_Name
+
+- Fast-forward merge is the most basic and simplest, easiest way to merge branches, history is just one straight-line chronologically, won't create any conflicts during merge branches.
+Recursive is necessary to be used when non-chronological commits happen. 
+
+- git checkout Branch_Name or git switch Branch_Name
+
+- git branch -d Branch_Name
+
+- It happens when try to merge branches and there is multiple different changes onto same files from different branches.
+
+Part 2.
+
+2-1 ) Fast-forward merge
+//switch to a new branch called "practice2"
+learn_git_again % git switch -c practice2
+Switched to a new branch 'practice2'
+
+//see the list of file
+learn_git_again % ls    
+practice1.txt
+
+//check the status
+learn_git_again % git status
+On branch practice2
+nothing to commit, working tree clean
+
+// add and commit the file
+learn_git_again % git add .
+
+learn_git_again % git commit -m "practice 2"
+[practice2 36e7aec] practice 2
+ 1 file changed, 1 insertion(+)
+learn_git_again % git log --oneline
+36e7aec (HEAD -> practice2) practice 2
+bbb8b97 (origin/main, main) testing
+7e1cc43 merge after conflicts
+9e8123a practice in practice branch
+3fd69b2 practice 1
+bde56e5 removing third.txt
+e148539 adding fourth.txt
+cd9867b adding third txt
+
+//switch to main branch
+learn_git_again % git switch main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+//merge practice2 branch into main branch
+learn_git_again % git merge practice2
+Updating bbb8b97..36e7aec
+Fast-forward
+ practice1.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+//merge is done, check the status
+learn_git_again % git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+//delete the branch after merging
+learn_git_again % git branch -d practice2
+Deleted branch practice2 (was 36e7aec).
+
+//check the status
+learn_git_again % git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+
+2-2) Merge-conflicts
+//Commit a practice1.txt
+Desktop % cd learn_git_again
+learn_git_again % git add .
+learn_git_again % git commit -m "practice 1"
+[main 3fd69b2] practice 1
+ 2 files changed, 3 insertions(+)
+ delete mode 100644 fourth.txt
+ create mode 100644 practice1.txt
+
+// check the status after commiting
+learn_git_again % git status 
+On branch main
+nothing to commit, working tree clean
+learn_git_again % git branch -a
+* main
+  practice
+
+//switch branch to practice and commit the same file to make a conflict
+learn_git_again % git switch practice
+Switched to branch 'practice'
+learn_git_again % touch practice1.txt
+learn_git_again % git add .
+learn_git_again % git commit -m "practice in practice branch"
+[practice 9e8123a] practice in practice branch
+ 1 file changed, 3 insertions(+)
+ create mode 100644 practice1.txt
+learn_git_again % git log --all --oneline
+9e8123a (HEAD -> practice) practice in practice branch
+3fd69b2 (main) practice 1
+bde56e5 removing third.txt
+e148539 adding fourth.txt
+cd9867b adding third txt
+learn_git_again % git switch main
+Switched to branch 'main'
+learn_git_again % git status
+On branch main
+nothing to commit, working tree clean
+
+// try to merge branches and conflict happened and merged after conflicts
+learn_git_again % git merge practice
+Auto-merging practice1.txt
+CONFLICT (add/add): Merge conflict in practice1.txt
+Automatic merge failed; fix conflicts and then commit the result.
+learn_git_again % git add . 
+learn_git_again % git commit -m "merge after conflicts"
+[main 7e1cc43] merge after conflicts
+
+//check the status and it's now up to date
+learn_git_again % git status    
+On branch main
+nothing to commit, working tree clean
+learn_git_again % git merge practice
+Already up to date.
+learn_git_again % git log --oneline
+7e1cc43 (HEAD -> main) merge after conflicts
+9e8123a (practice) practice in practice branch
+3fd69b2 practice 1
+bde56e5 removing third.txt
+e148539 adding fourth.txt
+cd9867b adding third txt

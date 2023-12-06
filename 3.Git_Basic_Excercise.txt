@@ -1,0 +1,149 @@
+Git Basic Exercise 
+1. desktop % mkdir learn_git_again\
+
+2. desktop % cd learn_git_again\
+
+3. learn_git_again % touch third.txt\
+
+4. learn_git_again % git init \
+Initialized empty Git repository in /Users/jay/Desktop/learn_git_again/.git/\
+ learn_git_again % git status \
+On branch main\
+\
+No commits yet\
+\
+Untracked files:\
+  (use "git add <file>..." to include in what will be committed)\
+	\cf3 third.txt\cf2 \
+\
+nothing added to commit but untracked files present (use "git add" to track)\
+
+5. learn_git_again % git add third.txt\
+   learn_git_again % git commint -m "adding third.txt \
+dquote> "  \
+git: 'commint' is not a git command. See 'git --help'.\
+\
+The most similar command is\
+	commit\
+
+6. learn_git_again % git commit -m "adding third txt"\
+[main (root-commit) cd9867b] adding third txt\
+ 1 file changed, 0 insertions(+), 0 deletions(-)\
+ create mode 100644 third.txt\
+
+7. learn_git_again % git log\
+\cf4 commit cd9867ba074ed8dd14fca7c7c8214b551d1f509b (
+\f1\b \cf5 HEAD
+\f0\b0 \cf4  -> 
+\f1\b \cf6 main
+\f0\b0 \cf4 )\cf2 \
+Author: Jay <j.kye71@gmail.com>\
+Date:   Sun Dec 3 21:56:18 2023 -0800\
+\
+    adding third txt\
+
+8. learn_git_again % touch fourth.txt\
+
+9. learn_git_again % git add fourth.txt\
+
+10. learn_git_again % git commit -m "adding fourth.txt"\
+[main e148539] adding fourth.txt\
+ 1 file changed, 0 insertions(+), 0 deletions(-)\
+ create mode 100644 fourth.txt\
+
+11. learn_git_again % rm third.txt\
+ learn_git_again % git add\
+Nothing specified, nothing added.\
+\cf4 hint: Maybe you wanted to say 'git add .'?\cf2 \
+\cf4 hint: Turn this message off by running\cf2 \
+\cf4 hint: "git config advice.addEmptyPathspec false"\cf2 \
+
+12. learn_git_again % git add .\
+
+13. learn_git_again % git commit -m "removing third.txt"\
+[main bde56e5] removing third.txt\
+ 1 file changed, 0 insertions(+), 0 deletions(-)\
+ delete mode 100644 third.txt\
+
+14. learn_git_again % git log\
+\cf4 commit bde56e5394a9b941b48f090351b63358fc47631e (
+\f1\b \cf5 HEAD
+\f0\b0 \cf4  -> 
+\f1\b \cf6 main
+\f0\b0 \cf4 )\cf2 \
+Author: Jay <j.kye71@gmail.com>\
+Date:   Sun Dec 3 21:58:01 2023 -0800\
+\
+    removing third.txt\
+\
+\cf4 commit e1485399832781c6ec0926df0390701dfbe51667\cf2 \
+Author: Jay <j.kye71@gmail.com>\
+Date:   Sun Dec 3 21:57:04 2023 -0800\
+\
+    adding fourth.txt\
+\
+\cf4 commit cd9867ba074ed8dd14fca7c7c8214b551d1f509b\cf2 \
+Author: Jay <j.kye71@gmail.com>\
+Date:   Sun Dec 3 21:56:18 2023 -0800\
+\
+    adding third txt\
+ learn_git_again % core.pager=cat\
+zsh: command not found: core.pager=cat\
+ learn_git_again % git config --global \
+usage: git config [<options>]\
+\
+Config file location\
+    --[no-]global         use global config file\
+    --[no-]system         use system config file\
+    --[no-]local          use repository config file\
+    --[no-]worktree       use per-worktree config file\
+    -f, --[no-]file <file>\
+                          use given config file\
+    --[no-]blob <blob-id> read config from given blob object\
+\
+Action\
+    --[no-]get            get value: name [value-pattern]\
+    --[no-]get-all        get all values: key [value-pattern]\
+    --[no-]get-regexp     get values for regexp: name-regex [value-pattern]\
+    --[no-]get-urlmatch   get value specific for the URL: section[.var] URL\
+    --[no-]replace-all    replace all matching variables: name value [value-pattern]\
+    --[no-]add            add a new variable: name value\
+    --[no-]unset          remove a variable: name [value-pattern]\
+    --[no-]unset-all      remove all matches: name [value-pattern]\
+    --[no-]rename-section rename section: old-name new-name\
+    --[no-]remove-section remove a section: name\
+    -l, --[no-]list       list all\
+    --[no-]fixed-value    use string equality when comparing values to 'value-pattern'\
+    -e, --[no-]edit       open an editor\
+    --[no-]get-color      find the color configured: slot [default]\
+    --[no-]get-colorbool  find the color setting: slot [stdout-is-tty]\
+\
+Type\
+    -t, --[no-]type <type>\
+                          value is given this type\
+    --bool                value is "true" or "false"\
+    --int                 value is decimal number\
+    --bool-or-int         value is --bool or --int\
+    --bool-or-str         value is --bool or string\
+    --path                value is a path (file or directory name)\
+    --expiry-date         value is an expiry date\
+\
+Other\
+    -z, --[no-]null       terminate values with NUL byte\
+    --[no-]name-only      show variable names only\
+    --[no-]includes       respect include directives on lookup\
+    --[no-]show-origin    show origin of config (file, standard input, blob, command line)\
+    --[no-]show-scope     show scope of config (worktree, local, global, system, command)\
+    --[no-]default <value>\
+                          with --get, use default value when missing entry\
+\
+
+15. learn_git_again % git config --global core.pager "cat"\
+
+16. learn_git_again % git config --global --list\
+init.defaultbranch=main\
+core.editor=code --wait\
+core.pager=cat\
+user.email=j.kye71@gmail.com\
+user.name=Jay\
+\
