@@ -27,6 +27,8 @@ div.classList.add("footer", "main");
 div.classList.remove("main");
 
 // 8. Create a new li element.
+document.createElement("li");
+
 // 9. Give the li the text “four”.
 // 10. Append the li to the ul element.
 // 11. Loop over all of the lis inside the ol tag and give them a background color of “green”.
