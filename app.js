@@ -12,8 +12,8 @@ document.getElementsByClassName("second");
 document.querySelectorAll(".second");
 
 // 4. Select a list item with a class of third, but only the list item inside of the ol tag.
- const q4 = document.querySelectorAll(".third");
- q4[1];
+ document.querySelector("ol .third");
+ 
 
 // 5. Give the section with an id of container the text “Hello!”.
 const hello = document.getElementById("container");
@@ -37,8 +37,10 @@ const ul = document.querySelector("ul");
 ul.appendChild(li);
 
 // 11. Loop over all of the lis inside the ol tag and give them a background color of “green”.
-const lists = document.querySelector("ol");
-lists.style.backgroundColor = "green";
+const lists = document.querySelectorAll("ol li");
+for(let i = 0; i < lists.length; i++){
+    lists[i].style.backgroundColor = "green";
+}
 
 // 12. Remove the div with a class of footer
 const footer = document.querySelector(".footer");
