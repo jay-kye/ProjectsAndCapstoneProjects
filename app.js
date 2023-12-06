@@ -16,8 +16,8 @@ document.querySelectorAll(".second");
  q4[1];
 
 // 5. Give the section with an id of container the text “Hello!”.
-const hello = document.getElementById("container");
-hello.textContent = "Hello";
+// const hello = document.getElementById("container");
+// hello.textContent = "Hello";
 
 // 6. Add the class main to the div with a class of footer.
 const div = document.querySelector(".footer");
@@ -39,3 +39,5 @@ const lists = document.querySelector("ol");
 lists.style.backgroundColor = "green";
 
 // 12. Remove the div with a class of footer
+const footer = document.querySelector(".footer");
+footer.remove();
