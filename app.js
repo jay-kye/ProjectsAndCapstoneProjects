@@ -24,6 +24,8 @@ const div = document.querySelector(".footer");
 div.classList.add("footer", "main");
 
 // 7. Remove the class main on the div with a class of footer.
+div.classList.remove("main");
+
 // 8. Create a new li element.
 // 9. Give the li the text “four”.
 // 10. Append the li to the ul element.
