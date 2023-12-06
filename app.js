@@ -30,8 +30,12 @@ div.classList.remove("main");
 const li = document.createElement("li");
 
 // 9. Give the li the text “four”.
-li.innerText = "four"
+li.innerText = "four";
 
 // 10. Append the li to the ul element.
+
 // 11. Loop over all of the lis inside the ol tag and give them a background color of “green”.
+const lists = document.querySelector("ol");
+lists.style.backgroundColor = "green";
+
 // 12. Remove the div with a class of footer
