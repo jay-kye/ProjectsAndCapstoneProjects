@@ -20,6 +20,9 @@ const hello = document.getElementById("container");
 hello.textContent = "Hello";
 
 // 6. Add the class main to the div with a class of footer.
+const div = document.querySelector(".footer");
+div.classList.add("footer", "main");
+
 // 7. Remove the class main on the div with a class of footer.
 // 8. Create a new li element.
 // 9. Give the li the text “four”.
