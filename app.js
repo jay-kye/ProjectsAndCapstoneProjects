@@ -14,8 +14,11 @@ document.querySelectorAll(".second");
 // 4. Select a list item with a class of third, but only the list item inside of the ol tag.
  const q4 = document.querySelectorAll(".third");
  q4[1];
- 
+
 // 5. Give the section with an id of container the text “Hello!”.
+const hello = document.getElementById("container");
+hello.textContent = "Hello";
+
 // 6. Add the class main to the div with a class of footer.
 // 7. Remove the class main on the div with a class of footer.
 // 8. Create a new li element.
