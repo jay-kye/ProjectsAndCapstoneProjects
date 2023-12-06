@@ -16,8 +16,8 @@ document.querySelectorAll(".second");
  q4[1];
 
 // 5. Give the section with an id of container the text “Hello!”.
-// const hello = document.getElementById("container");
-// hello.textContent = "Hello";
+const hello = document.getElementById("container");
+hello.textContent = "Hello";
 
 // 6. Add the class main to the div with a class of footer.
 const div = document.querySelector(".footer");
@@ -33,6 +33,8 @@ const li = document.createElement("li");
 li.innerText = "four";
 
 // 10. Append the li to the ul element.
+const ul = document.querySelector("ul");
+ul.appendChild(li);
 
 // 11. Loop over all of the lis inside the ol tag and give them a background color of “green”.
 const lists = document.querySelector("ol");
