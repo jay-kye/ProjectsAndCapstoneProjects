@@ -1,0 +1,23 @@
+Pt 1.
+- mkdir first
+- cd first
+- touch person.txt
+- mv person.txt another txt
+- cp another.txt copy.txt
+- rm copy.txt
+- cp -r first second
+- rm -rf second 
+
+
+Pt 2.
+1. `man` command shows manuals of each command. I can scroll using `Enter`key, up-down cursor on keyboard or a mouse to scroll. Enter `Q` key to get out.
+2. `-l` flag does List files in the long format, `-a` flag does it all appears hidden. Normally begin with “.”(dot)
+3. `opt + left/right arrow keys on keyboard`
+4. `control + e`
+5. `control + a`
+6. `control + w`
+7. Shell is the program which actually processes commands and returns output, and terminal is referring to a wrapper program which runs a shell.
+8. Absolute paths are the path starting from the root. i.e., /user/jay/desktop
+9. Relative paths are relative to work place where I am currently. i.e., cd desktop 
+10. Flags can change and even enhance commands. I did use -r, -rf, -a flags.
+11. `-r` flag with `rm` command does to attempt to remove the file hierarchy rooted in each file argument. And `-f` flag with `rm` command does to Attempt to remove the files without prompting for confirmation, regardless of the file's permissions. Combine these two flags with `rm` command which `rm -rf` can delete entire targeted folder and can not go back to restore unless have back up.  
