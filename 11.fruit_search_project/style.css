@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+:focus {
+   background-color: tomato;
+}
+
+body {
+  background-image: linear-gradient(to left, rgb(218, 81, 56), rgb(252, 199, 102));    height: 200px;
+  
+}
+
+input {
+  border-width: 0 0 1px;
+  border-color: tomato;
+  border-radius: 2px; opacity: 0.65;
+  height: 35px;
+  width: 285px;
+  font-size:20px;
+}
+
+.search-container {
+ position:absolute;
+ top: 45%;
+ left: 40%;
+}
+.search-container input,
+.search-container .suggestions {
+  background-color:rgba(252, 199, 102, 0.721)
+}
+
+/* .search-container input {
+}
+
+.search-container .suggestions {
+} */
+
+ul {
+  background-color:rgb(252, 199, 102) ;
+  margin: 0;
+  opacity: 0.75;
+  list-style-type: none;
+  padding-left:0px;
+  border-radius: 2px;
+  font-size: 18px;
+  cursor: pointer; 
+}
+/* ul.has-suggestions {
+}
+
+ul li {  
+} */
+ul li:hover {
+  background:rgb(218, 81, 56);
+}
