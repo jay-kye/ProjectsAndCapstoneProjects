@@ -28,6 +28,19 @@
             </div>
         </form>
         <form method="POST" action="/users/delete" class="form-inline">
+            {{ form.hidden_tag() }}
+        
+            {% for field in form if field.name != 'password' %}
+            {% endfor %}
+            {% with errors = get_flashed_messages() %}
+            {% if errors %}
+             <div class="alert alert-danger" role="alert">
+                {% for error in errors %}
+                    {{ error }}
+                {% endfor %}
+              </div>
+            {% endif %}
+            {% endwith %}
             <button class="btn btn-outline-danger ml-2">Delete Profile</button>
         </form>
     </div>

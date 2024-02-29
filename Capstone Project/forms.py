@@ -19,4 +19,6 @@ class UserEditForm(FlaskForm):
     email = StringField('E-mail', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[Length(min=8)])
     image_url = StringField('(Optional) Image URL')
-    bio = StringField('(Optional) Bio')
+
+# class UserPortfolioForm(FlaskForm):
+    

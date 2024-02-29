@@ -4,13 +4,19 @@
 {% block content %}
 <div class="row justify-content-md-center">
     <div class="col-md7 col-lg-5 d-grid gap-3">
-        <h2 class="text-center join-message">Join <b>inuit!</b></h2>
-        <form method="post" id="user_form">
+        <h2 class="text-center join-message" style='font-family:"Anta";'>Join <b>inuit!</b></h2>
+        <form method="POST" id="user_form" style='font-family:"Anta";'>
             {{ form.hidden_tag() }}
             {% for field in form if field.widget.input_type != 'hidden' %}
-                {% for error in field.errors %}
-                    <span class="text-danger">{{ error }}</span>
-                {% endfor %}
+                {% with errors = get_flashed_messages() %}
+                    {% if errors %}
+                        <div class="alert alert-danger" role="alert">
+                            {% for error in errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
                 {{ field(placeholder=field.label.text, class="form-control")}}
             {% endfor %}
             <button class="btn btn-dark col-md-6 offset-md-3">Sign Up</button>

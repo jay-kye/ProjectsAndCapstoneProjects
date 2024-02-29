@@ -10,22 +10,19 @@ class StarredFeed(db.Model):
     """Mapping user starred feeds"""
 
     __tablename__ = 'starred_feeds'
-
-    id = db.Column(
-        db.Integer,
-        primary_key=True,
-    )
     
     user_id = db.Column(
         db.Integer,
         db.ForeignKey('users.id', ondelete='cascade'),
         nullable=False,
+        primary_key=True,
     )
 
     feed_id = db.Column(
         db.Integer,
         db.ForeignKey('feeds.id', ondelete='cascade'),
         nullable=False,
+        primary_key=True,
     )
 
     user = db.relationship('User', back_populates='starred_feeds')
@@ -76,12 +73,8 @@ class User(db.Model):
         db.Text,
         default="/static/images/default-pic.png",
     )
-    bio = db.Column(
-        db.Text,
-        default="Hi",
-    )
     
-    starred_feeds = db.relationship('StarredFeed', back_populates='user')
+    starred_feeds = db.relationship('StarredFeed', back_populates='user', cascade='all, delete-orphan')
 
 
 
@@ -107,7 +100,7 @@ class User(db.Model):
 
     
     @classmethod
-    def edit(cls, username, email, password, image_url, bio):
+    def edit(cls, username, email, password, image_url):
         
         hashed_pwd = bcrypt.generate_password_hash(password).decode('UTF-8')
         user = User(
@@ -115,7 +108,7 @@ class User(db.Model):
             email = email,
             image_url = image_url,
             password = hashed_pwd,
-            bio = bio,
+            
         )
 
         return user
@@ -124,7 +117,7 @@ class User(db.Model):
     def authenticate(cls, username, password):
         
         user = cls.query.filter_by(username=username).first()
-
+        
         if user:
             is_auth = bcrypt.check_password_hash(user.password, password)
             if is_auth:
