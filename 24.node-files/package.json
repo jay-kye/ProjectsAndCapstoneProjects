@@ -1,0 +1,18 @@
+{
+  "name": "files",
+  "version": "1.0.0",
+  "description": "Node Intro Project",
+  "main": "step1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Node-Intro"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.8"
+  }
+}
